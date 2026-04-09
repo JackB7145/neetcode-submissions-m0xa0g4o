@@ -1,0 +1,21 @@
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        l, r = 0, len(s)-1
+        skip = False
+        while l < r:
+            if s[l] != s[r] and skip:
+                return False
+            elif s[l] != s[r]:
+                if s[l+1] == s[r]:
+                    l += 1
+                else:
+                    r -= 1
+
+                skip = True
+                continue
+            
+            l += 1
+            r -= 1
+        return True
+
+        
